@@ -1,4 +1,0 @@
-/home/samuel/Educacion/SelfDriving/FindLaneLines/build/CMakeFiles/rebuild_cache.dir
-/home/samuel/Educacion/SelfDriving/FindLaneLines/build/CMakeFiles/edit_cache.dir
-/home/samuel/Educacion/SelfDriving/FindLaneLines/build/CMakeFiles/video.dir
-/home/samuel/Educacion/SelfDriving/FindLaneLines/build/CMakeFiles/images.dir
