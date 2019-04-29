@@ -2,21 +2,35 @@
 \usepackage[utf8]{inputenc}
 \begin{document}
 \title{Finding Lane Lines Project}
-\author{Samuel Navarro \\ Udacity}
+\author{Samuel Navarro \\ Udacity Self Driving Car ND}
 \date{\today}
 \maketitle
 	
+	\section{Description}%
+	\label{sec:description}
 
-	\section{Problems}%
+	I wanted to make the code in both C++ and Python. I'm a beginner at programming with C++ and because OpenCV has a very nice API both in Python and C++ this was a great oportunity for me.
+
+
+
+	\section{Reflection}%
 	\label{sec:problems}
 	
 	One of the problems I encounter it was that there where frames when you find the the fited line is not on the lane. Because of that I new that i needed some kind of average. I don't know if a simply avg or something like EWMA.
 
 
-
-	Another problem I saw was the fact that the frames could be from different sizes. At the beginning I hardcoded the variable $y\_fin$ so it can be roughly at the middle of the image. But when I started to work on the challenge video, I notice that the frames where different and in a real life scenario they will vary between videos. So I divided the frame.
-
+	Another problem I saw was the fact that the frames could be from different sizes. At the beginning I hardcoded the variable y\_fin so it can be roughly at the middle of the image. But when I started to work on the challenge video, I notice that the frames where different and in a real life scenario they will vary between videos. So I divided the frame.
 
 
+	\subsubsection{Improvements}%
+	\label{ssub:improvements}
+	
+		
+	Some of the improvements are:
+	\begin{itemize}
+		\item GPU implementation.
+		\item Benchmark code between CPU, GPU and cpp vs Python implementation.
+		\item Better way to implements EWMA.
+	\end{itemize}
 	
 \end{document}
