@@ -1,4 +1,0 @@
-/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/rebuild_cache.dir
-/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/edit_cache.dir
-/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/video.dir
-/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/images.dir
