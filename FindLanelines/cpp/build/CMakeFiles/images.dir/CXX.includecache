@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/images.cpp
+/home/samuel/Documents/SelfDriving/FindLanelines/cpp/images.cpp
 lanelines.hpp
-/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.hpp
+/home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.hpp
 opencv2/highgui.hpp
 -
 vector
@@ -18,7 +18,7 @@ numeric
 iostream
 -
 
-/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.cpp
+/home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.cpp
 opencv2/highgui.hpp
 -
 opencv2/opencv.hpp
@@ -30,9 +30,9 @@ vector
 numeric
 -
 lanelines.hpp
-/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.hpp
+/home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.hpp
 
-/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.hpp
+/home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.hpp
 iostream
 -
 vector
@@ -356,6 +356,62 @@ opencv2/core/cvdef.h
 assert.h
 -
 
+/usr/local/include/opencv4/opencv2/cudaarithm.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+
+/usr/local/include/opencv4/opencv2/cudabgsegm.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/video/background_segm.hpp
+/usr/local/include/opencv4/opencv2/opencv2/video/background_segm.hpp
+
+/usr/local/include/opencv4/opencv2/cudacodec.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+
+/usr/local/include/opencv4/opencv2/cudafeatures2d.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/features2d.hpp
+/usr/local/include/opencv4/opencv2/opencv2/features2d.hpp
+opencv2/cudafilters.hpp
+/usr/local/include/opencv4/opencv2/opencv2/cudafilters.hpp
+
+/usr/local/include/opencv4/opencv2/cudafilters.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/imgproc.hpp
+/usr/local/include/opencv4/opencv2/opencv2/imgproc.hpp
+
+/usr/local/include/opencv4/opencv2/cudaimgproc.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/imgproc.hpp
+/usr/local/include/opencv4/opencv2/opencv2/imgproc.hpp
+
+/usr/local/include/opencv4/opencv2/cudaobjdetect.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/objdetect.hpp
+/usr/local/include/opencv4/opencv2/opencv2/objdetect.hpp
+
+/usr/local/include/opencv4/opencv2/cudaoptflow.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+
+/usr/local/include/opencv4/opencv2/cudastereo.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/calib3d.hpp
+/usr/local/include/opencv4/opencv2/opencv2/calib3d.hpp
+
+/usr/local/include/opencv4/opencv2/cudawarping.hpp
+opencv2/core/cuda.hpp
+/usr/local/include/opencv4/opencv2/opencv2/core/cuda.hpp
+opencv2/imgproc.hpp
+/usr/local/include/opencv4/opencv2/opencv2/imgproc.hpp
+
 /usr/local/include/opencv4/opencv2/dnn.hpp
 opencv2/dnn/dnn.hpp
 -
@@ -383,8 +439,6 @@ opencv2/dnn/layer.hpp
 -
 opencv2/dnn/dnn.inl.hpp
 -
-opencv2/dnn/utils/inference_engine.hpp
--
 
 /usr/local/include/opencv4/opencv2/dnn/dnn.inl.hpp
 opencv2/dnn.hpp
@@ -393,10 +447,6 @@ opencv2/dnn.hpp
 /usr/local/include/opencv4/opencv2/dnn/layer.hpp
 opencv2/dnn.hpp
 -
-
-/usr/local/include/opencv4/opencv2/dnn/utils/inference_engine.hpp
-../dnn.hpp
-/usr/local/include/opencv4/opencv2/dnn/dnn.hpp
 
 /usr/local/include/opencv4/opencv2/dnn/version.hpp
 

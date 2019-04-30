@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.cpp" "/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles/video.dir/lanelines.cpp.o"
-  "/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/video.cpp" "/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles/video.dir/video.cpp.o"
+  "/home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.cpp" "/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/video.dir/lanelines.cpp.o"
+  "/home/samuel/Documents/SelfDriving/FindLanelines/cpp/video.cpp" "/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/video.dir/video.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

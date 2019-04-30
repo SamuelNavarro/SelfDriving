@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/samuel/Documents/SelfDriving/cpp/FindLaneLines
+CMAKE_SOURCE_DIR = /home/samuel/Documents/SelfDriving/FindLanelines/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build
+CMAKE_BINARY_DIR = /home/samuel/Documents/SelfDriving/FindLanelines/cpp/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/images.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/images.dir/flags.make
 
 CMakeFiles/images.dir/lanelines.cpp.o: CMakeFiles/images.dir/flags.make
 CMakeFiles/images.dir/lanelines.cpp.o: ../lanelines.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/images.dir/lanelines.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/images.dir/lanelines.cpp.o -c /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/images.dir/lanelines.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/images.dir/lanelines.cpp.o -c /home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.cpp
 
 CMakeFiles/images.dir/lanelines.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/images.dir/lanelines.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.cpp > CMakeFiles/images.dir/lanelines.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.cpp > CMakeFiles/images.dir/lanelines.cpp.i
 
 CMakeFiles/images.dir/lanelines.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/images.dir/lanelines.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/lanelines.cpp -o CMakeFiles/images.dir/lanelines.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documents/SelfDriving/FindLanelines/cpp/lanelines.cpp -o CMakeFiles/images.dir/lanelines.cpp.s
 
 CMakeFiles/images.dir/lanelines.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/images.dir/lanelines.cpp.o.provides.build: CMakeFiles/images.dir/lane
 
 CMakeFiles/images.dir/images.cpp.o: CMakeFiles/images.dir/flags.make
 CMakeFiles/images.dir/images.cpp.o: ../images.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/images.dir/images.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/images.dir/images.cpp.o -c /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/images.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/images.dir/images.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/images.dir/images.cpp.o -c /home/samuel/Documents/SelfDriving/FindLanelines/cpp/images.cpp
 
 CMakeFiles/images.dir/images.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/images.dir/images.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/images.cpp > CMakeFiles/images.dir/images.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/samuel/Documents/SelfDriving/FindLanelines/cpp/images.cpp > CMakeFiles/images.dir/images.cpp.i
 
 CMakeFiles/images.dir/images.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/images.dir/images.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/images.cpp -o CMakeFiles/images.dir/images.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/samuel/Documents/SelfDriving/FindLanelines/cpp/images.cpp -o CMakeFiles/images.dir/images.cpp.s
 
 CMakeFiles/images.dir/images.cpp.o.requires:
 
@@ -122,6 +122,10 @@ images: /usr/local/lib/libopencv_aruco.so.4.1.0
 images: /usr/local/lib/libopencv_bgsegm.so.4.1.0
 images: /usr/local/lib/libopencv_bioinspired.so.4.1.0
 images: /usr/local/lib/libopencv_ccalib.so.4.1.0
+images: /usr/local/lib/libopencv_cudabgsegm.so.4.1.0
+images: /usr/local/lib/libopencv_cudafeatures2d.so.4.1.0
+images: /usr/local/lib/libopencv_cudaobjdetect.so.4.1.0
+images: /usr/local/lib/libopencv_cudastereo.so.4.1.0
 images: /usr/local/lib/libopencv_cvv.so.4.1.0
 images: /usr/local/lib/libopencv_dnn_objdetect.so.4.1.0
 images: /usr/local/lib/libopencv_dpm.so.4.1.0
@@ -153,9 +157,13 @@ images: /usr/local/lib/libopencv_text.so.4.1.0
 images: /usr/local/lib/libopencv_dnn.so.4.1.0
 images: /usr/local/lib/libopencv_ml.so.4.1.0
 images: /usr/local/lib/libopencv_phase_unwrapping.so.4.1.0
+images: /usr/local/lib/libopencv_cudacodec.so.4.1.0
+images: /usr/local/lib/libopencv_cudaoptflow.so.4.1.0
+images: /usr/local/lib/libopencv_cudalegacy.so.4.1.0
+images: /usr/local/lib/libopencv_cudawarping.so.4.1.0
 images: /usr/local/lib/libopencv_optflow.so.4.1.0
-images: /usr/local/lib/libopencv_ximgproc.so.4.1.0
 images: /usr/local/lib/libopencv_video.so.4.1.0
+images: /usr/local/lib/libopencv_ximgproc.so.4.1.0
 images: /usr/local/lib/libopencv_objdetect.so.4.1.0
 images: /usr/local/lib/libopencv_calib3d.so.4.1.0
 images: /usr/local/lib/libopencv_features2d.so.4.1.0
@@ -164,10 +172,14 @@ images: /usr/local/lib/libopencv_highgui.so.4.1.0
 images: /usr/local/lib/libopencv_videoio.so.4.1.0
 images: /usr/local/lib/libopencv_imgcodecs.so.4.1.0
 images: /usr/local/lib/libopencv_photo.so.4.1.0
+images: /usr/local/lib/libopencv_cudaimgproc.so.4.1.0
+images: /usr/local/lib/libopencv_cudafilters.so.4.1.0
 images: /usr/local/lib/libopencv_imgproc.so.4.1.0
+images: /usr/local/lib/libopencv_cudaarithm.so.4.1.0
 images: /usr/local/lib/libopencv_core.so.4.1.0
+images: /usr/local/lib/libopencv_cudev.so.4.1.0
 images: CMakeFiles/images.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable images"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable images"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/images.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -185,6 +197,6 @@ CMakeFiles/images.dir/clean:
 .PHONY : CMakeFiles/images.dir/clean
 
 CMakeFiles/images.dir/depend:
-	cd /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/samuel/Documents/SelfDriving/cpp/FindLaneLines /home/samuel/Documents/SelfDriving/cpp/FindLaneLines /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build /home/samuel/Documents/SelfDriving/cpp/FindLaneLines/build/CMakeFiles/images.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/samuel/Documents/SelfDriving/FindLanelines/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/samuel/Documents/SelfDriving/FindLanelines/cpp /home/samuel/Documents/SelfDriving/FindLanelines/cpp /home/samuel/Documents/SelfDriving/FindLanelines/cpp/build /home/samuel/Documents/SelfDriving/FindLanelines/cpp/build /home/samuel/Documents/SelfDriving/FindLanelines/cpp/build/CMakeFiles/images.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/images.dir/depend
 
