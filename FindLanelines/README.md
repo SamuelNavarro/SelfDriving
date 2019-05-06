@@ -16,5 +16,11 @@ Because I'm currently learning C++ and the fact that you can implement OpenCV co
 2. `mkdir build && cd build`
 3. `cmake ..`
 4. `make`
-Now you run the executables:
+
+Now you can run the executables:
+
 5. `./video ../../test_videos/challenge.mp4`
+
+or if you prefer on an image:
+
+5. `./images ../.../test_images/solidWhiteRight.jpg`
