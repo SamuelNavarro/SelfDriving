@@ -1,0 +1,19 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\begin{document}
+\title{Advanced Lane Line Finding}
+\author{Samuel Navarro}
+\date{\today}
+\maketitle
+	
+
+
+
+One of the thins I believed I could make different was to make a moving window to detect the lines. I believed that you can make a mask of the image in places where you got peaks in your histogram.
+
+But, this approach could be more computationally expensive because you have to use `cv2.fitPoly`. The fact that the parameters of `cv2.rectangle` are just two points makes it easy also to draw the rectangles.
+
+
+
+
+\end{document}
