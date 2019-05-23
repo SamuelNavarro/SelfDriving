@@ -2,7 +2,21 @@
 CarND-Advanced-Lane-Lines/
 
 
-/* Latex */
+CVFundamentals/
+Lane-Detection-for-Autonomous-Cars/
+CarND-LaneLines-P1/
+cpp/build/
+build/
+CarND-Term1-Starter-Kit/
+CarND-Advanced-Lane-Lines/
+
+
+
+/* Python */ 
+.ipynb_checkpoints/
+
+
+/* Latex junk */
 *.aux
 *.fdb_latexmk
 *.fls
@@ -10,3 +24,14 @@ CarND-Advanced-Lane-Lines/
 *.out
 *.toc
 *.synctex.gz
+
+
+
+/*Advanced Lane Line Finding*/
+wide_dist_pickle.p
+CarND-Camera-Calibration/
+AdvancedLaneFinding/images/
+
+
+/* ctags */
+tags
