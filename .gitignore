@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+CarND-Advanced-Lane-Lines/
+
+
+/* Latex */
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
