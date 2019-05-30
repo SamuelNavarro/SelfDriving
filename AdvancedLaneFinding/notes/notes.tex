@@ -1,6 +1,5 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{minted}
 \usepackage{graphicx}
 \graphicspath{{./images/}}
 
@@ -22,7 +21,7 @@
 
 The code for this step is implemented in the third and fourth cell of the jupyter notebook in the functions \texttt{show\_image} and \texttt{calibrate\_camera}. 
 
-The output of \texttt{calibrate\_camera} gives us the objpoints and the imgpoints arrays. I then use the this arrays to obtain the distortion coefficients and the camera matrix to obtain the undistorted image. 
+The output of \texttt{calibrate\_camera} gives us the objpoints and the imgpoints arrays. I then use this arrays to obtain the distortion coefficients and the camera matrix to obtain the undistorted image. 
 
 An example is in the Figure 1 and 2~\ref{fig:undistort} 
 
@@ -52,7 +51,7 @@ An example is in the Figure 1 and 2~\ref{fig:undistort}
 \label{sub:undistorted_test}
 
 
-We can se te distortion correction being applied in one of the test images:
+We can see the distortion correction being applied in one of the test images:
 
 \begin{figure}[htb!]
 	\centering
@@ -90,7 +89,7 @@ Then, with the warped image at hand, I used a combination of color and gradient 
 
 I figure out that when the road is clear, the s\_channel is better to find the lanes but when the road is dark because of some shadow caused by the threes, the l\_channel was better. 
 
-Because of that, I used a combination l and s channel images with and without x gradient.
+Because of that, I used a combination of l and s channel images with and without x gradient.
 
 The result can be found in the Figure~\ref{fig:combined_binary}
 
@@ -112,8 +111,6 @@ The result can be found in the Figure~\ref{fig:combined_binary}
 The functions I used to fit the lines was \texttt{search\_around\_poly}. The result can be found in the Figure~\ref{fig:fitted_lines}.
 
 
-
-
 For the video I used the \texttt{search\_around\_poly} but for illustration I used the \texttt{old\_search\_around\_poly} function to illustrate the windows. 
 
 \begin{figure}[htb!]
@@ -123,7 +120,28 @@ For the video I used the \texttt{search\_around\_poly} but for illustration I us
 	\label{fig:fitted_lines}
 \end{figure}
 
+\subsection{Curvature}%
+\label{sub:curvature}
 
+The curvature is being measured in the function \texttt{measure\_curvature\_real}. The useful pixels of the images were taken from the warped image so I endup with:
+
+\begin{itemize}
+	\item \texttt{ym\_per\_pix} = 30 / 720
+	\item \texttt{xm\_per\_pix} = 3.7 / 700
+\end{itemize}
+
+The location of the vehicle was taken from the fitted lines. I computed the distance from the left line to the center of warped image. Also, I calculated the distance from the middle of the warped image to the right line. If the difference between this to values is greater than zero, the vehicle is on the left and if the difference is less than zero, the vehicle is on the right.
+
+
+
+The final output is in the Figure~\ref{fig:output}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{output}
+	\caption{output}
+	\label{fig:output}
+\end{figure}
 
 
 
@@ -138,13 +156,12 @@ For the video I used the \texttt{search\_around\_poly} but for illustration I us
 
 
 \begin{itemize}
-	\item One of the problems I encounter was the fact that you have a difference in the frames when you are trying to diagnose the problems. It seems obvious when you know you are dealing with the undistorted frames but at the beginning I was trying to diagnose the problems with the original frame.
+	\item One of the problems I encounter was the fact that you have a difference in the frames when you are trying to diagnose the problems. It seems obvious when you know you are dealing with the undistorted frames but at the beginning I was trying to diagnose the problems with the original frame but applying the functions into the undistorted images.
+	\item As in the previous project, I would like to implement this in C++ and check what are the differences.
+	\item Another thing I could do to improve the pipeline is to compute the Exponential Moving Average of the fitted lines to give more weight to the recent frames and to update the lines based on the EWMA of the lines.
+	\item Also, I wanted to provide a video with 4 different frames with the different process being showed in the video but I didn't have enough time.
 \end{itemize}
 
-
-One of the things I believed I could make different was to make a moving window to detect the lines. I believed that you can make a mask of the image in places where you got peaks in your histogram.
-
-But, this approach could be more computationally expensive because you have to use `cv2.fitPoly`. The fact that the parameters of `cv2.rectangle` are just two points makes it easy also to draw the rectangles.
 
 
 
