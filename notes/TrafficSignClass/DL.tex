@@ -1,6 +1,7 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{minted}
 
 \begin{document}
 \title{Deep Learning}
@@ -11,7 +12,193 @@
 \tableofcontents
 
 
-hol
+\section{Tensorflow}%
+\label{sec:tensorflow}
 
-	
+
+A is a 0-dimensional int32 tensor.
+\texttt{A = tf.constant(1234)}
+
+B is a 1-dimensional int32 tensor.
+\texttt{B = tf.constant([123, 456, 789])}
+
+C is a 2-dimensional int32 tensor
+\texttt{C = tf.context([ [123, 456, 789], [222, 333, 444] ] ) }
+
+
+A \textit{Tensorflow Session} as shown above, is an environment for running graph. The session is in charge of allocating the operations to GPUs and/or CPUs, including remote machines. 
+
+What if you want to use a non-constant? This is where \texttt{tf.placeholder()} and \texttt{feed\_dict} come into place.
+
+You can't just set \texttt{x} to your dataset and put it in Tensorflow, because over time you'll want your Tensorflow model to take in different datasets with different parameters. You need \texttt{tf.placeholder()}.
+
+\texttt{tf.placeholder()} returns a tensor that gets its value from data passed to the \texttt{tf.session.run()} function, allowing you tu set the input right before the sessions runs. 
+
+\textbf{Session's feed\_dict}
+
+\begin{listing}
+\begin{minted}[linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}
+x = tf.placeholder(tf.string)
+y = tf.placeholder(tf.int32)
+z = tf.placeholder(tf.float32)
+
+
+with tf.Session() as sess:
+	output = sess.run(x, feed_dict={x: 'Hello World', y: 123, z: 45.67})
+\end{minted}
+\caption{caption name}
+\label{lst:caption_name}
+\end{listing}
+
+
+
+\textbf{Tensorflow Linear Function} 
+
+The way you turn your scores into probabilities is using the \textbf{softmax} function. Scores in the context of logistic regression are also called logits.
+
+\textbf{Softmax function}
+The softmax function should take in \texttt{x}, a one or two dimensional array of logits. 
+In the one dimensional case, the array is just a single set of logits. In the two dimensional case, \textit{each column in the array is a set of logits.} Thats why we use \texttt{axis=0}
+
+
+
+What happens to the softmax probabilities when you multiply the logits by 10?
+
+Probabilities get close to 0.0 or 1.0
+
+
+What happens to the softmax probabilities when you divide the logits by 10?
+The probabilities get close to the uniform distribution.
+
+Since all the scores decrease in magnitude, the resulting softmax probabilities will be closer to each other. 
+
+\subsection{Gradient Descent}%
+\label{sub:gradient_descent}
+
+One simple principle is that we always want our variables to have zero mean and equal variance whenever possible. This is also good when we do optimization. 
+
+In the case of images, you can do:
+
+$$ \frac{Channel - 128}{128} $$.
+
+And, we also want to have a good weight initialization. There is a lot of methods to make this but for now we can just use the weights from a Gaussian distribution with mean zero and sd sigma.  The sigma values represent the order of magnitude of your output at the initial point of your optimization.
+
+Because of the use of softmax in top of it, the order of magnitude also determines the peakiness of you initial probability distribution. Large sigma means your distribution will have large peaks, very opinitionated. 
+
+A small sigma means that your distributions is very uncertain about things. It's better to begin with uncertain distribution and let the optimization more confident as the training progress. 
+
+So, we should use the small sigma to begin with. 
+
+We need to measure the error on the test data. 
+
+One rule of thumb is that if computing your loss takes n floating points of calculation, computing the gradients takes 3 times that compute. 
+
+And because the loss is huge because it depends on all the data, the gradients could be a very expensive operation. 
+
+In order to same computation power, we can cheat, we can use the average loss for a very small fraction of the training data. (something like from 1 to 1000 training samples). 
+
+The way we pick our samples must be random, in other case it would not work. 
+
+So, the process is like this: \textbf{Stochastic Gradient Descent} 
+\begin{enumerate}
+	\item Pick a random set of examples. 
+	\item Compute the loss for that sample.
+	\item Compute the derivative of that sample.
+	\item Pretend that that derivate is the right direction to use. (Is not right at all the right direction)
+\end{enumerate}
+
+Each calculation is faster because is trained on less data but the price we pay is that we need to take many more steps. 
+
+\textbf{SGD} scales well with model data and model size. But because is fundementally a pretty bad optimizer, it comes with a lot of issues in practice. 
+
+
+\begin{itemize}
+	Tricks to help \textbf{SGD} 
+\item Inputs of zero mean and equal variance (small).
+\item Initial weigths should be random with mean = 0 and equal variance (small)
+\item Momentum: We can run an average of the gradient $M <- 0.9M + \delta L$  Beause the gradient give us the direction, this result in more faster convergence. 
+\item Learning Rate Decay: Is benefical to take smaller and smaller steps as you train. Some like to apply an exponential decay to the learning rate, some try to make it smaller every time the learning rate reaches its plateau. There's a lot of ways to go about it but the key thing is to lower every time.
+\end{itemize}
+
+About the learning rate tunning, you should never trust how fast you train, it's better to thing on terms of how good you train. 
+
+So, it should be the case that a lower learning rate give us lower loss but in more steps. 
+
+
+This is why \textbf{SGD} is often refered as black magic. Because you often have many hyperparameters:
+
+\begin{itemize}
+	\item initial learning rate
+	\item momentum
+	\item batch size
+	\item weight initialization
+\end{itemize}
+
+
+One of the rules of tumb is that when things don't work, always try to lower your learning rate first. 
+
+\textbf{Adagrad} is a modification of \textbf{SGD} which implicitly does momentum and learning decay for you. 
+
+\subsection{Mini-batching}%
+\label{sub:mini_batching}
+
+Is a technique for training on subsets of the dataset instead of all the data at one time. This provides the ability to train a model, even if a computer lacks the memory to store the entire dataset.
+
+
+Mini-batching is computationally inefficient, since you can't calculate the loss simultaneously across all samples. Howeber, this is a small price to pay in order to be able to run the model at all.
+
+It's also quite useful combined with \textbf{SGD}. The idea is:
+
+\begin{enumerate}
+	\item Randomly shuffle the data at the start of each epoch.
+	\item Create the mini-batches.
+	\item For each mini-batch, you train the network weights with gradient descent. 
+\end{enumerate}
+
+Since these batches are random, you're performing \textbf{SGD} with each batch.
+
+Example of the sizes:
+
+\begin{table}[hbt!]
+	\centering
+	\caption{Float 32 Size}
+	\label{tab:float32_size}
+	\begin{tabular}{|c|c|c|c|}
+		train\_features & Shape: (55000, 784) & Type: float32  & 172480000 bytes &
+		train\_labels   & Shape: (55000, 10)  & Type: float32  & 2200000 bytes &
+		weights			& Shape: (784,10)	  & Type: float32  & 31360 bytes &
+		biases			& Shape: (10,)		  & Type: float32  & 40 bytes & 
+	\end{tabular}
+\end{table}
+
+In case where the size of the batches would vary, we can take advantage of TensorFlow's \texttt{tf.placeholder()} function to receive the varying batch sizes. 
+
+\texttt{features = tf.placeholder(tf.float32, [None, n\_input])}
+\texttt{labels = tf.placeholder(tf.float32, [None, n\_classes])}
+
+
+The \textbf{None} dimension is a placeholder for the batch size. At runtime, Tensorflow will accept any batch size greater than 0.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
