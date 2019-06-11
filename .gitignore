@@ -1,3 +1,11 @@
+/*  Traffic Project */
+/* Data */
+*.gz
+
+
+
+
+
 .ipynb_checkpoints/
 CarND-Advanced-Lane-Lines/
 test_images_new/
@@ -30,6 +38,7 @@ CarND-Advanced-Lane-Lines/
 *.out
 *.toc
 *.synctex.gz
+_minted-DL/
 
 
 
