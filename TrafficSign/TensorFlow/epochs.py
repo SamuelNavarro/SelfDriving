@@ -3,6 +3,7 @@ import tensorflow as tf
 import numpy as np
 
 
+
 def print_epoch_stats(epoch_i, last_features, last_labels):
     current_cost = sess.run(
         cost,
