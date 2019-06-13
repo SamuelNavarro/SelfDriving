@@ -3,6 +3,10 @@
 *.gz
 
 
+/* Tensorflow junk */
+*.ckpt*
+checkpoint
+
 
 
 
