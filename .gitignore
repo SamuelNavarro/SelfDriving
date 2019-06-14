@@ -6,8 +6,11 @@
 /* Tensorflow junk */
 *.ckpt*
 checkpoint
+lenet.index
+lenet.data*
+lenet.meta
 
-
+__pycache__/
 
 
 .ipynb_checkpoints/
