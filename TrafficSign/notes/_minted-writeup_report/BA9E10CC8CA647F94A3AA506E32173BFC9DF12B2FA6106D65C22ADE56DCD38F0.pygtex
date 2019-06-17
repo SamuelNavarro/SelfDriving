@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{IMAGE\PYGZus{}SIZE} \PYG{o}{=} \PYG{l+m+mi}{32}
+
+\PYG{k}{def} \PYG{n+nf}{tf\PYGZus{}resize\PYGZus{}images}\PYG{p}{(}\PYG{n}{images}\PYG{p}{):}
+    \PYG{n}{X\PYGZus{}data} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{tf}\PYG{o}{.}\PYG{n}{reset\PYGZus{}default\PYGZus{}graph}\PYG{p}{()}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{tf}\PYG{o}{.}\PYG{n}{placeholder}\PYG{p}{(}\PYG{n}{tf}\PYG{o}{.}\PYG{n}{float32}\PYG{p}{,} \PYG{p}{(}\PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{n+nb+bp}{None}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{))}
+    \PYG{n}{tf\PYGZus{}img} \PYG{o}{=} \PYG{n}{tf}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{per\PYGZus{}image\PYGZus{}standardization}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+    \PYG{n}{tf\PYGZus{}img} \PYG{o}{=} \PYG{n}{tf}\PYG{o}{.}\PYG{n}{image}\PYG{o}{.}\PYG{n}{rgb\PYGZus{}to\PYGZus{}grayscale}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{)}
+    \PYG{k}{with} \PYG{n}{tf}\PYG{o}{.}\PYG{n}{Session}\PYG{p}{()} \PYG{k}{as} \PYG{n}{sess}\PYG{p}{:}
+        \PYG{n}{sess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{n}{tf}\PYG{o}{.}\PYG{n}{global\PYGZus{}variables\PYGZus{}initializer}\PYG{p}{())}
+        \PYG{k}{for} \PYG{n}{image} \PYG{o+ow}{in} \PYG{n}{images}\PYG{p}{:}
+            \PYG{n}{output\PYGZus{}image} \PYG{o}{=} \PYG{n}{sess}\PYG{o}{.}\PYG{n}{run}\PYG{p}{(}\PYG{n}{tf\PYGZus{}img}\PYG{p}{,} \PYG{n}{feed\PYGZus{}dict} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{n}{X}\PYG{p}{:} \PYG{n}{image}\PYG{p}{\PYGZcb{})}
+            \PYG{n}{X\PYGZus{}data}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{output\PYGZus{}image}\PYG{p}{)}
+
+    \PYG{n}{X\PYGZus{}data} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{X\PYGZus{}data}\PYG{p}{,} \PYG{n}{dtype} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{float32}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Convert to numpy}
+    \PYG{k}{return} \PYG{n}{X\PYGZus{}data}
+
+
+\PYG{c+c1}{\PYGZsh{}\PYGZsh{} And the implementation would be}
+
+\PYG{n}{X\PYGZus{}train} \PYG{o}{=} \PYG{n}{tf\PYGZus{}resize\PYGZus{}images}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{)}
+\end{Verbatim}
