@@ -46,6 +46,7 @@ CarND-Advanced-Lane-Lines/
 *.toc
 *.synctex.gz
 _minted-DL/
+_minted-writeup_report/
 
 
 
