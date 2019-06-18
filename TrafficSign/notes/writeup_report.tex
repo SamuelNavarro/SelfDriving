@@ -86,6 +86,9 @@ But, I don't know why it constantly gave me an \texttt{TypeError: Cannot interpr
 That's the reason why I end up using plain \texttt{numpy} to sum up the channels to convert to greyscale and normalize the images. I think there is some problem with the sessions or the variables when using Tensorflow for pre-processing. If you can tell why that could be helpful in the future.
 
 
+\textit{After review: The reason why I used the greyscale step is because the only thing that matters in the sign are the shapes. In fact, there's a lot of similarity between the colors of the signs so it was better to just work with the shapes. I normalized the data to get approximately zero mean and equal variance. Another thing is that this is better so the optimization process could converge faster.}
+
+
 
 \textbf{2. Describe what your final model architecture looks like include model type, layers, layer sizes, etc.}
 
@@ -151,7 +154,25 @@ For the loss I used the function \texttt{tf.nn.softmax\_cross\_entropy\_with\_lo
 \textbf{4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93.}
 
 
-My validation accuracy was 0.969 and the Test accuracy was 0.958. At the beginning I used a very higher learning rate so I ended up with the problem mentioned in the lectures of faster convergence but to a lower loss. 
+My validation accuracy was 0.969 and the Test accuracy was 0.958. 
+
+After review: the Process was:
+
+
+	\begin{itemize}
+		\item I search through different kernel sizes and depth.
+		\item I try higher depth of the kernels to see if they can extract more information in the images but that was not the case. 
+		\item After trying different combinations without success (the accuracy on the validation set was below 70 \% and it looked like there's won't be much improvement besides how much I increase the number of epochs) I ended up with the same architecture as LeNet.
+		\item Another thing I tried, was to add more fully connected layers at the end but that was useless too.
+		\item After I decided to stick with the LeNet architecture, I added dropout to every fully connected layer to avoid overfitting, that gave me more accuracy in the validation set confirming that I was overfitting in the train set. 
+		\item In the optimization process: At the beginning I used a very higher learning rate so I ended up with the problem mentioned in the lectures of faster convergence but to a lower loss. So I decreased the learning rate.
+	\end{itemize}
+
+
+
+
+
+
 
 With the architecture, I was interested in playing with the size of the Convolutional kernels, strides, etc. At the end, it seems obvious to me that I don't have an idea of the particular things that make a particular architecture to work. This is something I will dive into in the future. 
 
@@ -173,7 +194,7 @@ Here are the images from the web used after pre-processing:
 \end{figure}
 
 
-The test accuracy on the images was 1.00. This is mainly because this are pretty basic images. They are well centered and they have no noise on them. This made easy to my model classify the images.  
+\textit{Review: }The test accuracy on the images was 1.00. This is mainly because this are pretty basic images. They are well centered and they have no noise on them. This made easy to my model classify the images.  
 
 
 
@@ -181,7 +202,8 @@ The test accuracy on the images was 1.00. This is mainly because this are pretty
 
 
 
-In the Figure~\ref{fig:top_k} we can see the top 5 Softmax Probabilities for each images. The first column is the image with the highest probability, the second is the 2nd guess and so on. Each input image is in each row. 
+
+In the Figure~\ref{fig:top_k} we can see the top 5 Softmax Probabilities for each images with the values. This tells us that the confidence of the model is pretty high. The first column is the image with the highest probability, the second is the 2nd guess and so on. Each input image is in each row. 
 
 
 This is a pretty useful tool to check the similarities between the images with the highest probability.
