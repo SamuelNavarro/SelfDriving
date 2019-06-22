@@ -1,0 +1,91 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage{hyperref}
+
+\begin{document}
+\title{Project Notes}
+\author{Samuel Navarro}
+\date{\today}
+\maketitle
+\tableofcontents{}
+
+
+\section{Visualizing Loss}%
+\label{sec:visualizing_loss}
+
+When calling \texttt{model.fit()} or \texttt{model.fit\_generator()}, Keras outputs a history object that contains the training and validation loss for each epoch. 
+
+Code example in Listing~\ref{lst:visualizing_loss}:
+
+\begin{listing}
+\begin{minted}[linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}
+from keras.models import Model
+import matplotlib.pyplot as plt
+
+history_object = model.fit_generator(train_generator, samples_per_epoch =
+    len(train_samples), validation_data = 
+    validation_generator,
+    nb_val_samples = len(validation_samples), 
+    nb_epoch=5, verbose=1)
+
+### print the keys contained in the history object
+print(history_object.history.keys())
+
+### plot the training and validation loss for each epoch
+plt.plot(history_object.history['loss'])
+plt.plot(history_object.history['val_loss'])
+plt.title('model mean squared error loss')
+plt.ylabel('mean squared error loss')
+plt.xlabel('epoch')
+plt.legend(['training set', 'validation set'], loc='upper right')
+plt.show()
+\end{minted}
+\caption{Visualizing Loss}
+\label{lst:visualizing_loss}
+\end{listing}
+
+\section{Generators}%
+\label{sec:generators}
+
+Generators can be a great way to work with large amounts of data. Instead of storing the preprocessed data in memory all at once, using a generator you can pull pieces of the data and process them on the fly only when you need them, which is much more memory-efficient.
+
+\begin{listing}
+\begin{minted}[linenos,numbersep=5pt,frame=lines,framesep=2mm]{python}
+def fibonacci()
+    numbers_list = []
+    while 1:
+        if(len(numbers_list) < 2):
+            numbers_list.append(1)
+        else:
+            numbers_list.append(numbers_list[-1] + numbers_list[-2])
+        yield numbers_list # change this line so it yields its list instead of 1
+
+our_generator = fibonacci()
+my_output = []
+
+for i in range(10):
+    my_output = (next(our_generator))
+
+print(my_output)
+\end{minted}
+\caption{Generators}
+\label{lst:generators}
+\end{listing}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+\end{document}

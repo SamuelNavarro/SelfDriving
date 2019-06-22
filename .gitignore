@@ -3,6 +3,12 @@
 *.gz
 
 
+
+
+/* Behavioural Project */
+self-driving-car-sim/
+CarND-Behavioral-Cloning-P3/
+
 /* Tensorflow junk */
 *.ckpt*
 checkpoint
@@ -43,6 +49,8 @@ build/
 *.synctex.gz
 _minted-DL/
 _minted-writeup_report/
+_minted-TL/
+_minted-project_notes/
 
 
 
