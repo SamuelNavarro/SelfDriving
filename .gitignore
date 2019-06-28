@@ -1,3 +1,12 @@
+/* Ext Kalman Filter Project */
+CarND-Mercedes-SF-Utilities/
+a.out
+build/
+tags
+
+
+
+
 /*  Traffic Project */
 /* Data */
 *.gz
@@ -51,6 +60,7 @@ _minted-DL/
 _minted-writeup_report/
 _minted-TL/
 _minted-project_notes/
+_minted-ExtKalmanFilter/
 
 
 
